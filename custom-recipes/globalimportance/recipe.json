@@ -1,0 +1,48 @@
+// This file is the descriptor for the Custom code recipe globalimportance
+{
+    // Meta data for display purposes
+    "meta": {
+        // label: name of the recipe as displayed, should be short
+        "label": "Shapley Absolute Global Importance (Top 20)",
+        // description: longer string to help end users understand what this recipe does
+        "description": "Calculates Absolute Shapley Global Importance for the Top 20 features of a Deployed Classification Model and stores as dataset. NOTE:  The Model must have a Prediction Type of either Two-Class Classification or Multiclass Classification",
+        // icon: must be one of the FontAwesome 3.2.1 icons, complete list here at https://fontawesome.com/v3.2.1/icons/
+        "icon": "icon-tasks"
+    },
+
+    "kind": "PYTHON",
+    "selectableFromSavedModel": "Model",
+
+    // Inputs and outputs are defined by roles. In the recipe's I/O tab, the user can associate one
+    // or more dataset to each input and output role.
+
+    // The "arity" field indicates whether the user can associate several datasets to the role ('NARY')
+    // or at most one ('UNARY'). The "required" field indicates whether the user is allowed to
+    // associate no dataset with the role.
+
+    "inputRoles": [
+        {
+            "name": "Model",
+            "label": "Model",
+            "description": "Must be Classification Model",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsSavedModel": true
+        }
+    ],
+
+    "outputRoles": [
+        {
+            "name": "Dataset",
+            "label": "Dataset",
+            "description": "Shapley Absolute Global Importance (Top 20)",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    
+    "parameters": [],
+    
+    "resourceKeys": []
+}
